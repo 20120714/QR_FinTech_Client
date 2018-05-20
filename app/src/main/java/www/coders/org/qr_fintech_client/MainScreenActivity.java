@@ -1,13 +1,10 @@
 package www.coders.org.qr_fintech_client;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 public class MainScreenActivity extends AppCompatActivity
@@ -22,8 +20,8 @@ public class MainScreenActivity extends AppCompatActivity
 
     ImageView userimg;
 
-    private ManageStoreFragment manageStoreFragment;
-    private ManageItemFragment manageItemFragment;
+    private ManageShopFragment manageStoreFragment;
+    private ManageProductFragment manageProductFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +49,8 @@ public class MainScreenActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        manageStoreFragment = new ManageStoreFragment();
-        manageItemFragment = new ManageItemFragment();
+        manageStoreFragment = new ManageShopFragment();
+        manageProductFragment = new ManageProductFragment();
 
         userimg =(ImageView)findViewById(R.id.UserImage);
 
@@ -102,7 +100,7 @@ public class MainScreenActivity extends AppCompatActivity
         if (id == R.id.nav_manageStore) {
             transaction.replace(R.id.container, manageStoreFragment);
         } else if (id == R.id.nav_manageItem) {
-            transaction.replace(R.id.container, manageItemFragment);
+            transaction.replace(R.id.container, manageProductFragment);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
